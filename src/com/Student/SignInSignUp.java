@@ -3,6 +3,7 @@ package com.Student;
 
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.apache.jasper.tagplugins.jstl.core.Out;
 
 import com.Student.Student;
 import com.Student.StudentDao;
@@ -25,6 +28,7 @@ public class SignInSignUp extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		StudentDao cd = new StudentDaoImp();
+		//PrintWriter out = response.getWriter();
 		
 		
 		String regno = request.getParameter("reg");
@@ -36,19 +40,20 @@ public class SignInSignUp extends HttpServlet {
 	    String submitype = request.getParameter("submit");
 		
 		Student c = cd.getStudent(email, password);
-		//System.out.println(c.getFirstname());
+		//System.out.println(c.getName());
 		
 		if(submitype.equals("Login") && c!=null && c.getName()!=null) {
 			
 			HttpSession session = request.getSession();
 
 			session.setAttribute("firstname", c.getName());
-			//session.setAttribute("registrationNumber", c.getRegno());
-			//session.setAttribute("email", c.getEmail());
-			//session.setAttribute("password", c.getPassword());
+			session.setAttribute("registrationNumber", c.getRegno());
+			session.setAttribute("email", c.getEmail());
+			session.setAttribute("password", c.getPassword());
 	
-		    response.sendRedirect("home.jsp");	
-			System.out.println(c.getRegno());
+			System.out.println(c.getYearOfStudy() + "yaay!");
+		    response.sendRedirect("index.jsp");	
+			//System.out.println(c.getYearOfStudy());
 				
 			}else if(submitype.equals("Register")) {
 				
@@ -71,8 +76,9 @@ public class SignInSignUp extends HttpServlet {
 				else
 					System.out.println("No  class Student created");
 	     }else {
+	    	   // out.println("Username or Password incorrect");
 				request.setAttribute("message", "Data not found signup if you dont have an account");
-				request.getRequestDispatcher("home.jsp").forward(request, response);
+				request.getRequestDispatcher("signin.jsp").forward(request, response);
 			}
 
 }

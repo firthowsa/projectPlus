@@ -4,9 +4,9 @@
 }
 
 .bgimage{
-	/*background-image: url("../img/back.jpg");*/
+	/*background-image: url("../img/backkk.jpg");*/
 	
-	background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url("../img/back.jpg");
+	background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url("../img/decoders.jpg");
 	
 	background-size: 100% 110%;
 	width: 100%;

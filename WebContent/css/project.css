@@ -1,0 +1,18 @@
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+.texts{
+	background-color:#ffffff;
+	margin-left:100px;
+	border:1px solid #dedace;
+	padding:10px;
+	line-height:1.6;
+	
+}
+#title{
+	color:#fc0345;
+}
+
+}
+ #title:hover{
+ color:yellow;
+ }

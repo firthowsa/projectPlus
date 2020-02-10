@@ -71,18 +71,22 @@
 
 </body>
 
-<script type="text/javascript">
+<script type="text/javascript"   src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.0.2/sha.js">
     function validate(){
     
     var name = document.registration.name.value;
 	var reg = document.registration.reg.value;
-	var pass = document.registration.pass.value;
 	var email = document.registration.email.value;
+	var pass = document.registration.pass.value;
+	var passc = document.registration.passc.value;
+	
 	
 	var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 	var letters = /^[A-Za-z]+$/;
 	var regi = /\w\d{2}\/\d{5}\/\d{2}/;
-     if(name == ""){
+	
+	
+	if(name == ""){
     	 alert("enter Firstname");
     	 document.registration.name.focus();
     	 return false;
@@ -93,12 +97,43 @@
 	if(letters.test(name) == false)
 		{
 	
-		alert("Firstname must have alphabet characters only");
-		document.registration.focus();
+		alert("name must have alphabet characters only");
+		 document.registration.name.focus();
 		return false;
 		}
 	
-    
+	if(pass == ""){
+   	 alert("enter password");
+   	 document.registration.pass.focus();
+   	 return false;
+    }
+	
+	if(pass != passc){
+		alert("password must be same");
+		return false;
+	}
+	
+	 if(pass.length<8){  
+		  alert("Password must be at least 8 characters long.");  
+		  return false;  
+		  }  
+	
+	if(email == ""){
+	   	 alert("enter email");
+	   	 document.registration.email.focus();
+	   	 return false;
+	    }
+		
+	if(mailformat.test(email) == false)
+	{
+
+	alert("Please enter a valid e-mail address  eg 'abc@mail.com'");
+	 document.registration.name.focus();
+	return false;
+	}
+	
+	
+	
      
     
      if(reg == ""){
@@ -106,7 +141,7 @@
     	 document.registration.reg.focus();
     	 return false;
      }
-     else if(reg.test(reg)){
+     else if(regi.test(reg)){
      	return true;
      }
      else
@@ -116,21 +151,9 @@
  	return false;
  	}
      
-     if(pass == ""){
-    	 alert("enter password number");
-    	 document.registration.pass.focus();
-    	 return false;
-     }
-     else if(pass<8){
-    	 alert("password must have a minimum of 8 characters");
-    	 	document.registration.pass.focus();
-    	 	return false;
-     }
-     else
- 	{
- 	
- 	return true;
- 	}
+     
+     
+     
      
     
      

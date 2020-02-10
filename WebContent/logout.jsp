@@ -7,8 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="header.jsp" />
-
-
+  <%
+session.invalidate();
+response.sendRedirect("home.jsp");
+%>
 </body>
 </html>

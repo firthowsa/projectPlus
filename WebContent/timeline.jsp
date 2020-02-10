@@ -7,7 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="header.jsp" />
+
+<%
+ 
+ String timeline=(String)session.getAttribute("time");
+ 
+ %>
+ 
+<p><%=timeline %></p>
 
 
 </body>

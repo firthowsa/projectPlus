@@ -4,11 +4,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Descriptions</title>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 </head>
 <body>
+
 <jsp:include page="header.jsp" />
 
 
+<%
+
+String desc=request.getParameter("desc");
+out.println(desc);
+
+%>
+	
+	
 </body>
 </html>
+<jsp:include page="footer.jsp" />

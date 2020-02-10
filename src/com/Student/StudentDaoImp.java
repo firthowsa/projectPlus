@@ -18,7 +18,7 @@ public class StudentDaoImp implements StudentDao {
 		try {
 			
 		conn1 = ConnectionProvider.getconn();
-		ps = conn1.prepareStatement("insert into students (name,regno,yearOfStudy, email, password)values(?,?,?,?,?)");
+		ps = conn1.prepareStatement("insert into users (name,regno,yearOfStudy, email, password)values(?,?,?,?,?)");
 		
 		ps.setString(1, c.getName());
 		ps.setString(2, c.getRegno());
@@ -48,9 +48,12 @@ public class StudentDaoImp implements StudentDao {
 		
 	try {
 		conn1 = ConnectionProvider.getconn();
-		ps = conn1.prepareStatement("select * from students where email=? and password=?");
+		ps = conn1.prepareStatement("select * from users where email=? and password=?");
 		ps.setString(1, email);
 		ps.setString(2, password);
+		
+		System.out.println(email +"syess");
+		
 		
 		ResultSet rs = ps.executeQuery();
 		
@@ -62,18 +65,19 @@ public class StudentDaoImp implements StudentDao {
 			c.setYearOfStudy(rs.getString(4));
 			c.setEmail(rs.getString(5));
 			c.setPassword(rs.getString(6));
+			c.setType(rs.getString(7));
+			
+		}
 			
 			
 			
-			
-			;
 			
 			//c.setRecoveryEmail(rs.getString(7));
 			
 			
-				
+					
 			
-		}
+		
 		
 		
 			}catch(Exception e){

@@ -1,6 +1,9 @@
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+html, body {padding:0; margin:0; height:100%;}
+
 section {
-    padding: 60px 0;
+    padding: 10px 0;
 }
 
 section .section-title {
@@ -11,6 +14,10 @@ section .section-title {
 }
 #footer {
     background: #007b5e !important;
+    position: absolute; 
+    bottom: 0;
+     left: 0;
+      right: 0;
 }
 #footer h5{
 	padding-left: 10px;
@@ -62,6 +69,11 @@ section .section-title {
 }
 #footer ul.quick-links li:hover a i {
     font-weight: 700;
+}
+#title:hover{
+	color:red;
+	
+	text-decoration: underline;
 }
 	@media (max-width:767px){
 	#footer h5 {
