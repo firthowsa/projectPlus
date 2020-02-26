@@ -34,6 +34,8 @@ HttpSession session = request.getSession();
              String category = request.getParameter("cat");
              String description = request.getParameter("desc");
              String title = request.getParameter("title");
+             
+             session.setAttribute(title, "title");
 //		
 	    Date date = new Date();
        
@@ -59,7 +61,7 @@ HttpSession session = request.getSession();
 			System.out.println(status);
 			
 			
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("ViewProjects");
 		     
 				}else {
 					session.setAttribute("message6", "Data not found signup if you dont have an account");

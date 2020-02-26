@@ -18,13 +18,14 @@ public class StudentDaoImp implements StudentDao {
 		try {
 			
 		conn1 = ConnectionProvider.getconn();
-		ps = conn1.prepareStatement("insert into users (name,regno,yearOfStudy, email, password)values(?,?,?,?,?)");
+		ps = conn1.prepareStatement("insert into users (name,regno,yearOfStudy, email, password,teamName)values(?,?,?,?,?,?)");
 		
 		ps.setString(1, c.getName());
 		ps.setString(2, c.getRegno());
 		ps.setString(3, c.getYearOfStudy());
 		ps.setString(4, c.getEmail());
 		ps.setString(5, c.getPassword());
+		ps.setString(6, c.getTeamName());
 		
 		status = ps.executeUpdate();
 		
@@ -66,6 +67,7 @@ public class StudentDaoImp implements StudentDao {
 			c.setEmail(rs.getString(5));
 			c.setPassword(rs.getString(6));
 			c.setType(rs.getString(7));
+			c.setTeamName(rs.getString(8));
 			
 		}
 			

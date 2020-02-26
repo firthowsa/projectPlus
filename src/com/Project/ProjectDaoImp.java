@@ -2,11 +2,18 @@ package com.Project;
 import java.sql.Connection;
 
 
+
+
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import com.Student.ConnectionProvider;
+
+
+
+
 import com.Project.Project;
 
 
@@ -36,7 +43,7 @@ public class ProjectDaoImp implements ProjectDao {
 		status = ps.executeUpdate();
 		
 		conn1.close();
-		System.out.println(p.getTitle()+"yaaay!");
+		//System.out.println(p.getTitle()+"yaaay!");
 			
 		}catch(Exception e){
 			System.out.println(e);
@@ -129,6 +136,7 @@ public class ProjectDaoImp implements ProjectDao {
 				return proj;
 		
 	}
+	
 public ArrayList<Project> getDescription(int id){
 		
 		ArrayList <Project> proj = new ArrayList<Project>();
@@ -147,8 +155,8 @@ public ArrayList<Project> getDescription(int id){
 			while(rs.next()) {
 				
 				Project p = new Project();
-				String desc = rs.getString("description");
-				p.setDescription(desc);
+				//String desc = rs.getString("description");
+				//p.setDescription(desc);
 				proj.add(p);
 			}
 			
@@ -161,6 +169,87 @@ public ArrayList<Project> getDescription(int id){
 				return proj;
 		
 	}
+
+
+      @Override
+	public Project getStudent(String title) {
+	Project c = new Project();
+	
+
+	
+try {
+	conn1 = ConnectionProvider.getconn();
+	ps = conn1.prepareStatement("select * from projects where title=? ");
+	ps.setString(1, title);
+	//ps.setString(2, password);
+	//System.out.println(email +"yess");
+	
+	
+	
+	ResultSet rs = ps.executeQuery();
+	
+	while(rs.next()) {
+		
+		c.setPid(rs.getInt(1));
+		c.setLevel(rs.getString(2));
+		c.setCategory(rs.getString(3));
+		c.setDescription(rs.getString(4));
+		c.setTitle(rs.getString(5));
+		
+		
+		
+		
+		//c.setRecoveryEmail(rs.getString(7));
+		
+		
+			
+		
+	}
+	
+	
+		}catch(Exception e){
+			System.out.println(e);
+			
+			System.out.println("there is an exception here4");
+		}
+		
+		return c;
+	}
+      
+      
+      
+	@Override
+public boolean update(Project c){  
+	boolean flag = false; 
+    try{  
+    	conn1 = ConnectionProvider.getconn();  
+        PreparedStatement ps=conn1.prepareStatement(  
+                     "update projects set level=?,category=?,description=?,title=? where pid=?");  
+        
+        ps.setString(1,c.getLevel()); 
+        ps.setString(2,c.getCategory());
+        ps.setString(3,c.getDescription());             
+        ps.setString(4,c.getTitle());
+        ps.setInt(5,c.getPid());
+        
+          
+        ps.executeUpdate(); 
+        System.out.println("First Name is: "+c.getPid());
+
+        flag = true;
+          
+        
+    }catch(Exception e){
+    	System.out.println(e);
+        System.out.println("there is an exception in updating");
+    	
+    	}  
+      
+    return flag;  
+}
+
+ 
+
 
 
 }

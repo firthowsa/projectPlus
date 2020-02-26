@@ -41,8 +41,9 @@
   
   <input class="submit" type="submit" name="submit" value="Login"><br><br>
  <div style="text-align: center;">
+ <a href="">Forgot Password</a><br><br>
 <span > Don't have an account?</span>
-<a href="sigup.jsp">Sign Up</a></div>
+<a href="signup.jsp">Sign Up</a></div>
   </form>
 </div>
 </body>

@@ -12,7 +12,7 @@
 
 
 </head>
-<body onload="document.registration.name.focus();">
+<body  onload="document.registration.reset();"">
 
    <nav>
         <div class="leftmenu">
@@ -36,8 +36,8 @@
  <form name="registration"  class="form1" action="SignInSignUp" method="post">
  
  
- <label class="lb ">Name</label>
- <input class="un " type="text" name="name">
+ <label class="lb ">User name</label>
+ <input class="un " type="text" name="name" required>
  
  <label class="lb ">Registration Number</label>
  <input class="un " type="text" name="reg">
@@ -55,6 +55,9 @@
   <label class="lb ">Email</label>
  <input class="un " type="text" name="email">
  
+ <label class="lb ">TeamName</label>
+ <input class="un " type="text" name="team">
+ 
   <label class="lb ">Password</label>
  <input class="un " type="password" name="pass">
  
@@ -71,7 +74,7 @@
 
 </body>
 
-<script type="text/javascript"   src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.0.2/sha.js">
+<script type="text/javascript"   >
     function validate(){
     
     var name = document.registration.name.value;

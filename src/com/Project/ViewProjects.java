@@ -25,7 +25,9 @@ public class ViewProjects extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
         ProjectDao pd = new ProjectDaoImp();
-	
+        String type=(String)session.getAttribute("type");
+	   
+        //Project b= pd.getProj(pid);
        
          ArrayList<Project> p = pd.getAll();
          
@@ -33,7 +35,15 @@ public class ViewProjects extends HttpServlet {
 		if(p!=null ) {
 			System.out.println(p.size());
 			session.setAttribute("projects", p);
+			//session.setAttribute("update", b);
+			
+			if(type.equals("student"))
+			
 		    response.sendRedirect("projects.jsp");	
+			
+			else{
+				 response.sendRedirect("adminprojects.jsp");
+			}
 			
 				
 			}

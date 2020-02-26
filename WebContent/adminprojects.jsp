@@ -2,9 +2,9 @@
     pageEncoding="ISO-8859-1"%>
     
     <%@ page import= "com.Project.Project" %>
+    <%@ page import= "com.Student.Student" %>
      <%@ page import= "java.sql.*" %>
      <%@ page import = "java.util.ArrayList" %>
-      <%@ page import= "com.Student.Student" %>
      
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -25,14 +25,18 @@ response.setHeader("Cache-control", "no-cache,no-store,must-revalidate");
 if(session.getAttribute("firstname") == null){
 response.sendRedirect("signin.jsp");
 }
-Student user = (Student)session.getAttribute("user");
-if(!user.getType().equals("student")){
-	response.sendRedirect("index.jsp");
-}
-
+	Student user = (Student)session.getAttribute("user");
+	if(!user.getType().equals("admin")){
+		response.sendRedirect("home.jsp");
+	}
 %>
 
 <jsp:include page="header.jsp" />
+<nav>
+<ul>
+<li><a href="addProjIdeas.jsp">Add Project Ideas</a></li>
+</ul>
+</nav>
 
    <% ArrayList<Project> d = (ArrayList)session.getAttribute("projects"); %>
   
@@ -50,6 +54,7 @@ if(!user.getType().equals("student")){
   
   <input type="hidden" value="<%= b.getDescription() %>" name="desc">
   
+  
   <h4><input type="submit" id="title" value="<%= b.getTitle() %>" name="title"></h4>
  
  
@@ -63,6 +68,8 @@ if(!user.getType().equals("student")){
    
    
    <br>
+   
+   
   
  
 

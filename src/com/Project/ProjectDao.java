@@ -10,5 +10,8 @@ public interface ProjectDao {
 	public int insertProject(Project p) ;
 	public ArrayList<Project> getProject(String category);
 	public ArrayList<Project> getAll();
+	public Project getStudent(String title);
+	public boolean update(Project c);
+
 
 }

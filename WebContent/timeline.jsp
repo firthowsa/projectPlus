@@ -7,14 +7,38 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<%
+<jsp:include page="header.jsp" />
+ <%
  
  String timeline=(String)session.getAttribute("time");
+ String title=(String)session.getAttribute("title");
  
  %>
+ <header>
+<nav>
+  <input type="text" value="<%= title %>">
+  <ul>
+  
+  <li> <a>Submit</a></li>
+  </ul>
+  
+ </nav>
+</header>
+ 
+<div >
+    <nav>
+    <ul>
+       <li> <a href="competitors.jsp" >Description</a></li>
+        <li><a href="rule.jsp" >Rules</a></li>
+        <li><a href="timeline.jsp" >Timeline</a></li>
+       <li> <a href="prize.jsp" tabindex="-1">Prize</a></li>
+       </ul>
+   </nav>
+</div>
+
  
 <p><%=timeline %></p>
+
 
 
 </body>

@@ -34,7 +34,7 @@ response.sendRedirect("signin.jsp");
   
   <br>
   <br>
- <form action="UpdateComp" method="post" >
+ <form action="teamController" method="post" >
  <div class="competition">
  <input id="compe" type="submit" value="<%= b.getTitle()  %>" name="title">
  
@@ -45,14 +45,13 @@ response.sendRedirect("signin.jsp");
  <input type="hidden" value="<%=b.getRules()%>" name="rules">
  <input type="hidden" value="<%= b.getTimeline()%>" name="time">
  <input type="hidden" value="<%= b.getPrize() %>" name="prize">
-  
  
  </form>
   
   </div>
 
   <%} %>
-   
+     
 
 </body>
 </html>

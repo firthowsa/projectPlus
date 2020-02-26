@@ -9,6 +9,7 @@ public class Student {
 	private String email;
 	private String password;
 	private String type;
+	private String teamName;
  
 	
 	public int getId() {
@@ -54,6 +55,12 @@ public class Student {
 	}
 	public void setType(String type) {
 		this.type = type;
+	}
+	public String getTeamName() {
+		return teamName;
+	}
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
 	}
 
 	

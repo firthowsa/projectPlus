@@ -13,6 +13,7 @@
 <jsp:include page="header.jsp" />
 <%
 
+
 String title=request.getParameter("title");
 String desc=request.getParameter("desc");
 String rules=request.getParameter("rules");
@@ -30,24 +31,32 @@ session.setAttribute("prize",prize);
 %>
 
 <header>
-<nav id="title">
-  <input type="text" value="<%= title %>">
- <li ><a href="teamSignIn.jsp">Join Competition</a></li>
- </nav> 
- 
- 
+
+  
+  <form action="teamRedirect" method="post">
+  <nav>
+  <ul>
+  <li><input type="text" value="<%= title %>"></li><br><br>
+ <li ><input type="submit" value="Join Competition" ></li>
+</ul>
+</nav>
+</form>
+<div >
+    <nav>
+    <ul>
+       <li> <a href="#" >Description</a></li>
+       <li> <a href="rule.jsp" >Rules</a></li>
+        <li><a href="timeline.jsp" >Timeline</a></li>
+        <li><a href="prize.jsp" tabindex="-1">Prize</a></li>
+    </ul>    
+   </nav>
+</div>
+
 </header>
 <p> <%=desc %></p>
 
 
-<div >
-    
-        <a href="#" >Description</a>
-        <a href="rule.jsp" >Rules</a>
-        <a href="timeline.jsp" >Timeline</a>
-        <a href="prize.jsp" tabindex="-1">Prize</a>
-   
-</div>
+
 
    
 
