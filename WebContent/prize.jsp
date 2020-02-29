@@ -28,7 +28,7 @@
 <div >
     <nav>
     <ul>
-       <li> <a href="competitors.jsp" >Description</a></li>
+       <li> <a href="description.jsp" >Description</a></li>
         <li><a href="rule.jsp" >Rules</a></li>
         <li><a href="timeline.jsp" >Timeline</a></li>
        <li> <a href="prize.jsp" tabindex="-1">Prize</a></li>

@@ -10,7 +10,7 @@
 <jsp:include page="header.jsp" />
  <%
  
- String timeline=(String)session.getAttribute("time");
+ String desc=(String)session.getAttribute("desc");
  String title=(String)session.getAttribute("title");
  
  %>
@@ -28,17 +28,16 @@
 <div >
     <nav>
     <ul>
-       <li> <a href="description.jsp" >Description</a></li>
+       <li> <a href="#" >Description</a></li>
         <li><a href="rule.jsp" >Rules</a></li>
         <li><a href="timeline.jsp" >Timeline</a></li>
        <li> <a href="prize.jsp" tabindex="-1">Prize</a></li>
        </ul>
    </nav>
 </div>
-
+   
  
-<p><%=timeline %></p>
-
+<p><%=desc %></p>
 
 
 </body>

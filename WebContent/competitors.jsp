@@ -23,6 +23,20 @@ String prize=(String)session.getAttribute("prize");
 
 //out.println(desc);
 
+
+//String title=request.getParameter("title");
+//String desc=request.getParameter("desc");
+//String rules=request.getParameter("rules");
+//String timeline=request.getParameter("time");
+//String prize=request.getParameter("prize");
+
+//session.setAttribute("title",title);
+//session.setAttribute("desc",desc);
+//session.setAttribute("rules",rules);
+//session.setAttribute("time",timeline);
+//session.setAttribute("prize",prize);
+
+
 %>
 
 <header>

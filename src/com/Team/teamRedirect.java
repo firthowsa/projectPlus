@@ -88,7 +88,7 @@ public class teamRedirect extends HttpServlet {
 	   
 		   if( regno.equals(reg) || regno.equals(regf) || regno.equals(regt) || regno.equals(regth) || regno.equals(regfi)){
 			  
-			   if(compe.equals(null)){
+			   if(compe!= null){
 			   
 			   HttpSession sess = request.getSession();
 			   String team = (String)sess.getAttribute("teamname");
@@ -112,9 +112,10 @@ public class teamRedirect extends HttpServlet {
 				   String team = (String)sess.getAttribute("teamname");
 				   PrintWriter out = response.getWriter();
 				   out.print(team + compe);
-				   request.getRequestDispatcher("competitors.jsp").forward(request, response);
+				   request.getRequestDispatcher("comp.jsp").forward(request, response);
+				   return;
 			   }
-			  return;  
+			    
 		   }
 		   
 		   	   

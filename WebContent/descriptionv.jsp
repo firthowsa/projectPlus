@@ -41,21 +41,21 @@ String prize=(String)session.getAttribute("prize");
 <header>
 
   
-  <form action="updateCompetition" method="post">
   <nav>
   <ul>
   <li><input type="text" value="<%= title %>"></li><br><br>
- <li ><input type="submit" value="Join Competition" ></li>
+ 
 </ul>
 </nav>
-</form>
+
 <div >
+
     <nav>
     <ul>
-       <li> <a href="#" >Description</a></li>
-       <li> <a href="rulej.jsp" >Rules</a></li>
-        <li><a href="timelinej.jsp" >Timeline</a></li>
-        <li><a href="prizej.jsp" tabindex="-1">Prize</a></li>
+       <li> <a href="descriptionv.jsp" >Description</a></li>
+       <li> <a href="rulev.jsp" >Rules</a></li>
+        <li><a href="timelinev.jsp" >Timeline</a></li>
+        <li><a href="prizev.jsp" tabindex="-1">Prize</a></li>
     </ul>    
    </nav>
 </div>

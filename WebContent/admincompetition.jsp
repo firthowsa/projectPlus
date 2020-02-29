@@ -20,6 +20,11 @@ response.sendRedirect("signin.jsp");
 }%>
 <jsp:include page="header.jsp" />
 
+<nav>
+<ul>
+<li><a href="addCompe.jsp">Add Competition</a></li>
+</ul>
+</nav>
    <% ArrayList<Competition> d = (ArrayList)session.getAttribute("projects"); 
    
    for(int i=0;i<d.size();i++){ 

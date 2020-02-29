@@ -70,10 +70,11 @@ public class SignUpTeam extends HttpServlet {
 				if(t.getTeamName()!=null) {
 					
 				cd.insertTeam(t);
-				
+				System.out.println(t.getFifthReg()+ t.getFirstReg() +t.getSecReg()+t.getThirdReg()+ t.getFourthReg());
 				request.setAttribute("message1", "Registration successful  Pliz signin to continue");
 				request.getRequestDispatcher("home.jsp").forward(request, response);
-			
+				
+				return;
 				}
 				else
 					System.out.println("No  class Student created");

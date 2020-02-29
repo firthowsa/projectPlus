@@ -52,7 +52,7 @@ String prize=(String)session.getAttribute("prize");
 <div >
     <nav>
     <ul>
-       <li> <a href="#" >Description</a></li>
+       <li> <a href="descriptionj.jsp" >Description</a></li>
        <li> <a href="rulej.jsp" >Rules</a></li>
         <li><a href="timelinej.jsp" >Timeline</a></li>
         <li><a href="prizej.jsp" tabindex="-1">Prize</a></li>

@@ -41,12 +41,12 @@ public class SignInSignUp extends HttpServlet {
 	    String submitype = request.getParameter("submit");
 		
 		Student c = cd.getStudent(email, password);
-		//System.out.println(c.getType());
+		//System.out.println(c.getId()+ "zubeir");
 		
 		if(submitype.equals("Login") && c!=null && c.getName()!=null) {
 			
 			HttpSession session = request.getSession();
-
+			session.setAttribute("id", c.getId());
 			session.setAttribute("firstname", c.getName());
 			session.setAttribute("registrationNumber", c.getRegno());
 			session.setAttribute("email", c.getEmail());

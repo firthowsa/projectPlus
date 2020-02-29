@@ -34,7 +34,7 @@ response.sendRedirect("signin.jsp");
   
   <br>
   <br>
- <form action="UpdateComp" method="post" >
+ <form action="JoinCompetition" method="post" >
  <div class="competition">
  <input id="compe" type="submit" value="<%= b.getTitle()  %>" name="title">
  
