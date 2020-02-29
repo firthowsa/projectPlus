@@ -56,7 +56,7 @@ public class TeamController extends HttpServlet {
 				cd.insertTeam(team_name, team_leader);
 				
 				
-				request.getRequestDispatcher("home.jsp").forward(request, response);
+				request.getRequestDispatcher("signin.jsp").forward(request, response);
 				
 				return;
 				}

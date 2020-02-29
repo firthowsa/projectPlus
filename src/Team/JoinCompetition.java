@@ -2,7 +2,8 @@ package Team;
 
 import java.io.IOException;
 
-import java.io.PrintWriter;
+
+
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -57,17 +58,20 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
  		  int compe=b.getCompetition();
  		  Integer a=new Integer(compe);
  		 
- 		  if(userid==leader && a!=null && cid==a){
- 			  PrintWriter out=response.getWriter();
-			  out.print(leader +"this is a teamleader" + "\n" +a);
+ 		  if(userid==leader && cid==a){
+             // response.sendRedirect(arg0);
  			  request.getRequestDispatcher("competitors.jsp").forward(request, response);
- 			  
  			  break;
+ 			  
  			  }
  		  
  		  
+ 		  
         }
-        request.getRequestDispatcher("Joins").forward(request, response);
-		  
+      //response.sendRedirect("Joins");
+	        request.getRequestDispatcher("Joins").forward(request, response);
+			 //break; 
+			 return;
+       
 }
 }
