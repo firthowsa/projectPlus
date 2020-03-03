@@ -5,7 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
 <title>project ideas</title>
+
+
 
 </head>
 <body onload="document.registration.reset();">
@@ -59,16 +62,13 @@
  
   
  
- <input class="submit" type="submit" name="add" onClick="return validate();"value="Add"><br><br>
+ <input class="submit" type="submit" name="add" onClick="return function();"value="Add"><br><br>
  
  
  </form>
 </div>
 
 
-
-
-
-
 </body>
+   
 </html>

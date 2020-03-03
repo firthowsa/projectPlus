@@ -7,12 +7,14 @@ import java.io.IOException;
 
 
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 
 
 
@@ -54,9 +56,15 @@ public class TeamController extends HttpServlet {
 				if(t.getTeam_Name()!=null) {
 					
 				cd.insertTeam(team_name, team_leader);
+			
+				int team_id=t.getTeamid();
+				int user_id=t.getTeam_leader();
+				
+				System.out.println(team_id  +"and"+user_id);
 				
 				
-				request.getRequestDispatcher("signin.jsp").forward(request, response);
+				
+				request.getRequestDispatcher("participants").forward(request, response);
 				
 				return;
 				}
@@ -72,7 +80,8 @@ public class TeamController extends HttpServlet {
 	    	   
 				request.getRequestDispatcher("signin.jsp").forward(request, response);
 			}
-	     
+	         //HttpSession session1 = request.getSession();
+			 
 	}
 }
 	

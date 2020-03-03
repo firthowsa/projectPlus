@@ -41,6 +41,9 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
         
         int userid=(Integer)session.getAttribute("id");
         
+        String url="comp.jsp";
+        
+        
         for(int i=0;i<p.size();i++){ 
  		   TeamModel b = p.get(i);
  		   //String team=b.getTeam_Name();
@@ -50,17 +53,15 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
  		  Integer a=new Integer(compe);
  		 
  		  if( a!=0 && g.equals(userid)){
-              
- 			  request.getRequestDispatcher("view.jsp").forward(request, response);
+              url="view.jsp";
+// 			  request.getRequestDispatcher("view.jsp").forward(request, response);
  			  break;
  			 
  			  }
- 		 
- 		  
  		  
  		  
         }
-        request.getRequestDispatcher("comp.jsp").forward(request, response);
+        request.getRequestDispatcher(url).forward(request, response);
 		 
 //        request.getRequestDispatcher("comp.jsp").forward(request, response);
 //		  return; 

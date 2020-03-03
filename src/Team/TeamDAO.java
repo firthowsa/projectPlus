@@ -188,7 +188,70 @@ public ArrayList<TeamModel> getAllTeams(){
 	      
 	    return flag;  
 	}
-
+	
+	
+	public int insertParticipant(int user_id,int team_id) {
+		int status = 0;
+		
+		
+		try {
+			
+		conn1 = ConnectionProvider.getconn();
+		ps = conn1.prepareStatement("insert into participants ( user_id,team_id)values(?,?)");
+		
+		
+		ps.setInt(1,user_id);
+		ps.setInt(2,team_id);
+		
+		
+		status = ps.executeUpdate();
+		
+		conn1.close();
+		//System.out.println(t.getTeamName()+  "team created successfully");
+			
+		}catch(Exception e){
+			System.out.println(e);
+			System.out.println("there is an exception inserting");
+			
+		}
+		
+		return status;
+	}
+	
+	
+	
+	public int count(int teamid) {
+		int status = 0;
+		
+		
+		try {
+			
+		conn1 = ConnectionProvider.getconn();
+		ps = conn1.prepareStatement("SELECT COUNT(*) AS totalCount FROM participants where team_id=?" );
+		ps.setInt(1,teamid);
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		long result= rs.getLong("totalCount");
+        System.out.println("Total Count="+result);
+//		ps.setInt(1,user_id);
+		
+		
+		
+		//status = ps.executeUpdate();
+		
+		conn1.close();
+		//System.out.println(t.getTeamName()+  "team created successfully");
+			
+		}catch(Exception e){
+			System.out.println(e);
+			System.out.println("there is an exception counting");
+			
+		}
+		
+		return status;
+	}
+	
+	
 	
 	
 }

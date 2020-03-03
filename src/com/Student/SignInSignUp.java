@@ -75,6 +75,7 @@ public class SignInSignUp extends HttpServlet {
 				if(c.getName()!=null) {
 					
 				cd.insertStudent(c);
+			
 				
 				request.setAttribute("message1", "Registration successful  Pliz signin to continue");
 				request.getRequestDispatcher("signin.jsp").forward(request, response);

@@ -1,7 +1,8 @@
 package com.Project;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+
+
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -18,12 +19,17 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/Desc")
 public class Desc extends HttpServlet {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		
 		Project p = new Project();
 		int id = p.getPid();
-		PrintWriter out = response.getWriter();
+		//PrintWriter out = response.getWriter();
 		//out.print(id);
 		
 		String title=request.getParameter("title");

@@ -5,6 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Competition |ProjectPlus</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src=https://code.jquery.com/jquery-1.12.4.js></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
 
@@ -25,8 +28,10 @@
   <textarea placeholder="Write your project idea" id="text" name="rules" rows="4" style="overflow: hidden; word-wrap: break-word; resize: none; height: 160px; " required></textarea>  
 		<br>
 		
+		
 		 <label class="lbb ">Timeline</label><br><br>
-  <textarea placeholder="Write your project idea" id="text" name="time" rows="4" style="overflow: hidden; word-wrap: break-word; resize: none; height: 160px; " required></textarea>  
+		 <p > Competition ends on Date: <input type="text"  class="unn " id="datepicker"></p>
+    
 		<br>
  
  
@@ -38,7 +43,7 @@
  
   
  
- <input class="submit" type="submit" name="add" onClick="return validate();"value="Add"><br><br>
+ <input class="submit" type="submit" name="add" onClick="return function();"value="Add"><br><br>
  
  
  </form>
@@ -49,4 +54,9 @@
 
 
 </body>
+<script type="text/javascript">
+   $(function() {
+	    $("#datepicker").datepicker();
+	  });
+   </script>
 </html>

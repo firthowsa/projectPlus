@@ -47,7 +47,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
         
         ArrayList<TeamModel> p = pd.getAllTeams();
         session.setAttribute("teams", p);
-        
+        String url="Joins";
         int userid=(Integer)session.getAttribute("id");
         
         for(int i=0;i<p.size();i++){ 
@@ -59,8 +59,9 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
  		  Integer a=new Integer(compe);
  		 
  		  if(userid==leader && cid==a){
+ 			  url="competitors.jsp";
              // response.sendRedirect(arg0);
- 			  request.getRequestDispatcher("competitors.jsp").forward(request, response);
+ 			  //request.getRequestDispatcher("competitors.jsp").forward(request, response);
  			  break;
  			  
  			  }
@@ -68,8 +69,9 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
  		  
  		  
         }
+        request.getRequestDispatcher(url).forward(request, response);
       //response.sendRedirect("Joins");
-	        request.getRequestDispatcher("Joins").forward(request, response);
+	        //request.getRequestDispatcher("Joins").forward(request, response);
 			 //break; 
 			 return;
        
