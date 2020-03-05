@@ -1,20 +1,17 @@
 package Team;
 
-import java.util.ArrayList;
+import com.Competitions.Competition;
 
-import com.Student.Student;
-
-public class TeamModel {
+public class TeamDTO {
 	private int teamid;
 	private String team_Name;
 	private int team_leader;
 	private int competition;
 	private String solution;
-	private ArrayList<Student> members;
+	private Competition competitionDTo;
 	public int getTeamid() {
 		return teamid;
 	}
-	
 	public void setTeamid(int teamid) {
 		this.teamid = teamid;
 	}
@@ -42,24 +39,15 @@ public class TeamModel {
 	public void setSolution(String solution) {
 		this.solution = solution;
 	}
-	
-	public void setMembers(ArrayList<Student> members) {
-		this.members = members;
+	public Competition getCompetitionDTo() {
+		return competitionDTo;
+	}
+	public void setCompetitionDTo(Competition competitionDTo) {
+		this.competitionDTo = competitionDTo;
 	}
 	
-	public ArrayList<Student> getMembers() {
-		return this.members;
-	}
-	@Override
-	public String toString() {
-		String out = "Team name: "+team_Name;
-		out+="\nLeader ID : "+team_leader+"\n Members\n";
-		for(Student s: members) {
-			out+="\t"+s.toString()+"\n";
-		}
-		out+="Solution :"+solution;
-		return out;
-	}
 	
+	
+
 
 }

@@ -23,7 +23,7 @@
                <li><a href="ViewProjects">ProjectIdeas</a></li>
                <li><a href="ViewCompetition">Competitions</a></li>
                <li><a href="winners.jsp">winners</a> </li>
-               <li><a href="team.jsp">team</a> </li>
+               <li><a href="ViewTeams">team</a> </li>
                <li><a href="logout.jsp">log out</a> </li>
             
             

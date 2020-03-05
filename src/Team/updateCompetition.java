@@ -18,6 +18,11 @@ import javax.servlet.http.HttpSession;
 
 
 
+
+
+import com.Competitions.Competition;
+import com.Competitions.competitionDaoImp;
+
 import Team.TeamModel;
 import Team.TeamDAO;
 
@@ -37,6 +42,18 @@ public class updateCompetition extends HttpServlet {
         session.setAttribute("teamn", teamn);
         
         int cid=(Integer)session.getAttribute("cid");
+        Competition c = new Competition();
+        c.setCid(cid);
+        competitionDaoImp cDao = new competitionDaoImp();
+        ArrayList<TeamModel> teams = cDao.getParticipatingTeamsFromDB(c);
+        ArrayList<TeamModel> teamsWithVacancy = new ArrayList<TeamModel>();
+        for(TeamModel t: teams) {
+        	pd.getParticipantsFromDatabase(t);
+        	if(t.getMembers().size() < 5){
+        		teamsWithVacancy.add(t);
+        		
+        	}
+        }
 //        String title=(String)session.getAttribute("title");
 //        String desc=(String)session.getAttribute("desc");
 //        String rules=(String)session.getAttribute("rules");
@@ -75,17 +92,20 @@ public class updateCompetition extends HttpServlet {
 
  		  }
  		   
-         	  
- 		 
- 		 
         }
-           
+        
+        
 		 
-         PrintWriter out=response.getWriter();
-		   out.println("<script type=\"text/javascript\">");
-		   out.println("alert('Kindly Create a Team  ');");
-		   out.println("location='teamleader.jsp';");
-		   out.println("</script>");
+         if(teamsWithVacancy.size() == 0) {
+        	 PrintWriter out=response.getWriter();
+  		   out.println("<script type=\"text/javascript\">");
+  		   out.println("alert('Kindly Create a Team or join a team ');");
+  		   out.println("location='teamleader.jsp';");
+  		   out.println("</script>");
+         } else {
+        	 request.setAttribute("teamsWithVacancy", teamsWithVacancy);
+        	 request.getRequestDispatcher("joinCompetition.jsp").forward(request, response);
+         }
 
 	}
 }

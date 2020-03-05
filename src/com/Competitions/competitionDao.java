@@ -8,5 +8,7 @@ public interface competitionDao {
 	
 	public int insertCompetition(Competition c) ;
 	public ArrayList<Competition> getCompetition();
+	
+	
 
 }

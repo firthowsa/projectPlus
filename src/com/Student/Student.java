@@ -63,7 +63,10 @@ public class Student {
 		this.teamName = teamName;
 	}
 
-	
+   @Override
+   public String toString() {
+	  return name+"___"+regno+"___"+yearOfStudy;
+   }
 	
 
 }

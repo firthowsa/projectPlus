@@ -55,8 +55,7 @@
   <label class="lb ">Email</label>
  <input class="un " type="text" name="email">
  
- <label class="lb ">TeamName</label>
- <input class="un " type="text" name="team">
+ 
  
   <label class="lb ">Password</label>
  <input class="un " type="password" name="pass">

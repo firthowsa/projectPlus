@@ -2,7 +2,7 @@ package com.Student;
 
 
 
-import java.io.IOException;
+import java.io.*;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.jasper.tagplugins.jstl.core.Out;
+//import org.apache.jasper.tagplugins.jstl.core.Out;
 
 import com.Student.Student;
 import com.Student.StudentDao;
@@ -36,7 +36,7 @@ public class SignInSignUp extends HttpServlet {
 		String email= request.getParameter("email");
 		String name = request.getParameter("name");
 		String yos = request.getParameter("yearOfStudy");
-		String teamname = request.getParameter("team");
+		//String teamname = request.getParameter("team");
 		
 	    String submitype = request.getParameter("submit");
 		
@@ -52,7 +52,7 @@ public class SignInSignUp extends HttpServlet {
 			session.setAttribute("email", c.getEmail());
 			session.setAttribute("yearOfStudy", c.getYearOfStudy());
 			session.setAttribute("type", c.getType());
-			session.setAttribute("teamname", c.getTeamName());
+			//session.setAttribute("teamname", c.getTeamName());
 			session.setAttribute("user", c);
 			
 			
@@ -70,7 +70,7 @@ public class SignInSignUp extends HttpServlet {
 	            c.setEmail(email);
 				c.setYearOfStudy(yos);;
 				c.setName(name);
-				c.setTeamName(teamname);
+				//c.setTeamName(teamname);
 				
 				if(c.getName()!=null) {
 					

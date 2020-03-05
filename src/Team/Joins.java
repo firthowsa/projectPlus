@@ -40,6 +40,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
         session.setAttribute("teams", p);
         
         int userid=(Integer)session.getAttribute("id");
+        //String type=(String)session.getAttribute("type");
         
         String url="comp.jsp";
         

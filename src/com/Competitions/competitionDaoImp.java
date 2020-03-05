@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import Team.TeamModel;
+
 import com.Competitions.Competition;
 import com.Project.Project;
 import com.Student.ConnectionProvider;
@@ -83,6 +85,98 @@ public class competitionDaoImp implements competitionDao {
 				return proj;
 		
 	}
+	
+	
+public ArrayList<TeamModel> getParticipatingTeamsFromDB(Competition c) {
+	ArrayList <TeamModel> teams = new ArrayList<TeamModel>();
+	
+	
+	try {
+		conn1 = ConnectionProvider.getconn();
+		ps = conn1.prepareStatement("select * from teams where competition = "+c.getCid());
+		//ps.setString(2, level);
+		
+		//System.out.println( "yessss");
+		
+		ResultSet rs = ps.executeQuery();
+		
+		//System.out.println( "done");
+		while(rs.next()) {
+			TeamModel t = new TeamModel();
+			t.setTeamid(rs.getInt(1));
+			t.setTeam_Name(rs.getString(2));
+			t.setTeam_leader(rs.getInt(3));
+			t.setCompetition(rs.getInt(4));
+			t.setSolution(rs.getString(5));
+			teams.add(t);
+		}
+		
+		
+			}catch(Exception e){
+				System.out.println(e);
+				System.out.println("there is an exception here4");
+			}
+			
+			return teams;
+}
+
+public boolean teamInCompetition(int teamId, int competitionId) {
+
+	try {
+		conn1 = ConnectionProvider.getconn();
+		ps = conn1.prepareStatement("select * from teams where competition = "+competitionId+" and teamid = "+teamId);
+		ResultSet rs = ps.executeQuery();
+		if(rs.next()) {
+			return true;
+			
+		}
+			}catch(Exception e){
+				System.out.println(e);
+			}
+	return false;
+}
+
+
+public boolean studentInTeam(int userid, int team_id) {
+	try {
+		conn1 = ConnectionProvider.getconn();
+		ps = conn1.prepareStatement("select * from participants where user_id = "+userid+" and team_id = "+team_id);
+		ResultSet rs = ps.executeQuery();
+		if(rs.next()) {
+			return true;
+			
+		}
+			}catch(Exception e){
+				System.out.println(e);
+			}
+	return false;
+}
+
+public boolean studentInCompetition(int competitionId, int sid) {
+	Competition c = new Competition();
+	c.setCid(competitionId);
+	
+	ArrayList<TeamModel> ts = getParticipatingTeamsFromDB(c);
+	for(TeamModel t: ts) {
+		if(studentInTeam( sid,  t.getTeamid())){
+			return true;
+		}
+	}
+	
+	return false;
+}
+
+public boolean studentInAnyCompetition( int sid) {
+	ArrayList<Competition> cs = getCompetition();
+	for(Competition c: cs) {
+		if(studentInCompetition( c.getCid(),  sid)) {
+			return true;
+		}
+	}
+	
+	return false;
+}
+
 
 
 
