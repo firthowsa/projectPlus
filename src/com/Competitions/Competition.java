@@ -8,6 +8,7 @@ public class Competition {
 	private String rules;
 	private String timeline;
 	private String prize;
+	private String category;
 
 	public int getCid() {
 		return cid;
@@ -55,6 +56,14 @@ public class Competition {
 
 	public void setPrize(String prize) {
 		this.prize = prize;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	
 

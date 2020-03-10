@@ -20,6 +20,17 @@
   <textarea placeholder="Write your project idea" id="text" name="title" rows="4" style="overflow: hidden; word-wrap: break-word; resize: none; height: 160px; " required></textarea>  
 		<br>
 		
+		<label class="lbb ">Select Category</label><br><br>
+  <select class="unn " name="category">
+  <option  >AI and Data Science</option>
+   <option >Android</option>
+  <option >Web Development</option>
+  
+
+  </select>
+  
+  <br><br>
+		
 		 <label class="lbb ">Description</label><br><br>
   <textarea placeholder="Write your project idea" id="text" name="desc" rows="4" style="overflow: hidden; word-wrap: break-word; resize: none; height: 160px; " required></textarea>  
 		<br>
@@ -28,12 +39,17 @@
   <textarea placeholder="Write your project idea" id="text" name="rules" rows="4" style="overflow: hidden; word-wrap: break-word; resize: none; height: 160px; " required></textarea>  
 		<br>
 		
-		
+		<!--  
 		 <label class="lbb ">Timeline</label><br><br>
 		 <p > Competition ends on Date: <input type="text"  class="unn " id="datepicker"></p>
     
 		<br>
- 
+ -->
+ <label class="lbb ">Timeline</label><br><br>
+		
+    <textarea placeholder="Write your project idea" id="text" name="time" rows="4" style="overflow: hidden; word-wrap: break-word; resize: none; height: 160px; " required></textarea>  
+    
+		<br>
  
  
  <br><br>

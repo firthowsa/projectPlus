@@ -32,6 +32,7 @@ public class competitionAdd extends HttpServlet {
 		             String rules = request.getParameter("rules");
 		             String timeline = request.getParameter("time");
 		             String prize = request.getParameter("prize");
+		             String category = request.getParameter("category");
 //				
 			    Date date = new Date();
 		       
@@ -49,6 +50,7 @@ public class competitionAdd extends HttpServlet {
 			   c.setRules(rules);
 			   c.setTimeline(timeline);
 			   c.setPrize(prize);
+			   c.setCategory(category);
 		       
 		        
 		    		

@@ -21,6 +21,7 @@ public class TeamDAO {
 	static Connection conn1;
 	static PreparedStatement ps;
 	
+	//insert into teams
 	public int insertTeam(String team_leader,int id) {
 		int status = 0;
 		
@@ -47,7 +48,7 @@ public class TeamDAO {
 		
 		return status;
 	}
-	
+	//insert competition
 	public int insertCompe(int cid) {
 		int status = 0;
 		
@@ -149,7 +150,7 @@ public class TeamDAO {
 			return t;
 		}
 	
-	
+	//gets all the teams
 public ArrayList<TeamModel> getAllTeams(){
 		
 		ArrayList <TeamModel> proj = new ArrayList<TeamModel>();
@@ -187,7 +188,7 @@ public ArrayList<TeamModel> getAllTeams(){
 				return proj;
 		
 	}
-	
+	//update teams table when team leader joins a competition
 	public boolean update(int comp,int teamid){ 
 		//Competition c=new Competition();
 		boolean flag = false; 
@@ -216,7 +217,7 @@ public ArrayList<TeamModel> getAllTeams(){
 	    return flag;  
 	}
 	
-	
+	//inserts participants of teams into participants table
 	public int insertParticipant(int user_id,int team_id) {
 		int status = 0;
 		
@@ -277,6 +278,7 @@ public ArrayList<TeamModel> getAllTeams(){
 		
 		return status;
 	}
+//not in use	
 public ArrayList<TeamDTO> getData(){
 		
 		ArrayList <TeamDTO> pro = new ArrayList<TeamDTO>();
@@ -318,7 +320,7 @@ public ArrayList<TeamDTO> getData(){
 				return pro;
 		
 	}
-
+//gets members of a single team
 public ArrayList<Student> getParticipantsFromDatabase(TeamModel team) {
 	ArrayList <Student> participants = new ArrayList<Student>();
 	

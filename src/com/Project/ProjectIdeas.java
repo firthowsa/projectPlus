@@ -36,6 +36,7 @@ HttpSession session = request.getSession();
              String title = request.getParameter("title");
              
              session.setAttribute(title, "title");
+             session.setAttribute(category, "category");
 //		
 	    Date date = new Date();
        

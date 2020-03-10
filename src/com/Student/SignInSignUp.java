@@ -58,7 +58,8 @@ public class SignInSignUp extends HttpServlet {
 			
 			
 			
-		    response.sendRedirect("ViewProjects");
+		    //response.sendRedirect("ViewProjects");
+		    response.sendRedirect("projectCards.jsp");
 		   
 				
 			}else if(submitype.equals("Register")) {

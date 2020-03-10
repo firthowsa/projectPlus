@@ -1,6 +1,7 @@
 package com.Competitions;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 import Team.TeamModel;
 
 import com.Competitions.Competition;
-import com.Project.Project;
+//import com.Project.Project;
 import com.Student.ConnectionProvider;
 
 public class competitionDaoImp implements competitionDao {
@@ -22,13 +23,14 @@ public class competitionDaoImp implements competitionDao {
 		try {
 			
 		conn1 = ConnectionProvider.getconn();
-		ps = conn1.prepareStatement("insert into competition (title,description,rules,timeline,prize)values(?,?,?,?,?)");
+		ps = conn1.prepareStatement("insert into competition (title,description,rules,timeline,prize,category)values(?,?,?,?,?,?)");
 		
 		ps.setString(1,c.getTitle());
 		ps.setString(2, c.getDescription());
 		ps.setString(3, c.getRules());
 		ps.setString(4, c.getTimeline());
 		ps.setString(5, c.getPrize());
+		ps.setString(6, c.getCategory());
 		
 		
 		status = ps.executeUpdate();
@@ -70,6 +72,7 @@ public class competitionDaoImp implements competitionDao {
 				p.setRules(rs.getString(4));
 				p.setTimeline(rs.getString(5));
 				p.setPrize(rs.getString(6));
+				p.setCategory(rs.getString(7));
 				
 				
 				
@@ -86,7 +89,7 @@ public class competitionDaoImp implements competitionDao {
 		
 	}
 	
-	
+	//gets teams from a single competition 
 public ArrayList<TeamModel> getParticipatingTeamsFromDB(Competition c) {
 	ArrayList <TeamModel> teams = new ArrayList<TeamModel>();
 	
@@ -119,7 +122,7 @@ public ArrayList<TeamModel> getParticipatingTeamsFromDB(Competition c) {
 			
 			return teams;
 }
-
+//gets all the teams 
 public boolean teamInCompetition(int teamId, int competitionId) {
 
 	try {
@@ -136,7 +139,7 @@ public boolean teamInCompetition(int teamId, int competitionId) {
 	return false;
 }
 
-
+//checks if the current user is in any team
 public boolean studentInTeam(int userid, int team_id) {
 	try {
 		conn1 = ConnectionProvider.getconn();
@@ -151,7 +154,7 @@ public boolean studentInTeam(int userid, int team_id) {
 			}
 	return false;
 }
-
+//checks if the student is participating in that specific competition
 public boolean studentInCompetition(int competitionId, int sid) {
 	Competition c = new Competition();
 	c.setCid(competitionId);
@@ -165,7 +168,7 @@ public boolean studentInCompetition(int competitionId, int sid) {
 	
 	return false;
 }
-
+//checks if the student is in any competition
 public boolean studentInAnyCompetition( int sid) {
 	ArrayList<Competition> cs = getCompetition();
 	for(Competition c: cs) {

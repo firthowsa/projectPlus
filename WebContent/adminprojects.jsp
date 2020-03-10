@@ -53,6 +53,8 @@ response.sendRedirect("signin.jsp");
   <form method="post" action="projectDescr.jsp">
   
   <input type="hidden" value="<%= b.getDescription() %>" name="desc">
+  <input type="hidden" value="<%= b.getLevel() %>" name="level">
+  <input type="hidden" value="<%= b.getCategory() %>" name="category">
   
   
   <h4><input type="submit" id="title" value="<%= b.getTitle() %>" name="title"></h4>

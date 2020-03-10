@@ -38,29 +38,26 @@ String prize=(String)session.getAttribute("prize");
 
 
 %>
+<div class="container">
+<h2><%= title %></h2>
+<div class="text-right">
+<ul style="list-style-type:none">
+   <li><a href="#" class="btn btn-success btn-rounded text-right " role="button">Submit</a></li>
 
-<header>
-<nav>
-  <input type="text" value="<%= title %>">
-  <ul>
-  
-  <li> <a>Submit</a></li>
-  </ul>
-  
- </nav>
-</header>
+</ul>
+</div>
 
 
 
 <div >
-    <nav>
-    <ul>
+   
+      <ul>
        <li> <a href="#" >Description</a></li>
         <li><a href="rule.jsp" >Rules</a></li>
         <li><a href="timeline.jsp" >Timeline</a></li>
        <li> <a href="prize.jsp" tabindex="-1">Prize</a></li>
-       </ul>
-   </nav>
+      </ul>
+ 
 </div>
 
    
@@ -70,7 +67,7 @@ String prize=(String)session.getAttribute("prize");
 
 
 
-
+</div>
 
 </body>
 </html>

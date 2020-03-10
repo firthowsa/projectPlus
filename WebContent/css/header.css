@@ -1,0 +1,78 @@
+.bg-company-red {
+    background-color: #003f72 !important;
+}
+.navbar navbar-expand-lg{
+	background-color: #003f72 !important;
+}
+#footer {
+    /*background: #007b5e !important;*/
+    background: #003f72 !important;
+ 
+   
+}
+nav{
+    
+   background:#003f72;
+    
+}
+.password{
+	color:blue;
+	font-size:14px;
+}
+.nav-link{
+	color:#fff !important;
+	font-size:18px !important;
+}
+a.active{
+	
+	text-decoration:underline !important;
+}
+/*a{
+	color:#fff;
+	font-size:20px;
+	
+}*/
+a:hover{
+	color:orange;
+}
+
+
+    .container{
+        width: 80%;
+        margin: 0 auto; /* Center the DIV horizontally */
+    }
+    .fixed-header, .fixed-footer{
+        width: 100%;
+        position: fixed;        
+        background: #333;
+        padding: 10px 0;
+        color: #fff;
+    }
+    .fixed-header{
+        top: 0;
+    }
+    .fixed-footer{
+        bottom: 0;
+    } 
+    
+    
+    /* Add responsiveness - On small screens, display the navbar vertically instead of horizontally */
+@media screen and (max-width: 600px) {
+  .topnav .login-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .login-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;
+  }
+}
+/*sign in*/
+
+   

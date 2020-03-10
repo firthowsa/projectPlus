@@ -12,20 +12,7 @@
 </head>
 <body>
 
-<nav>
-        <div class="leftmenu">
-   <a href="#" class="logo"><img src="img/logo.jpg" height="70" width="100" alt="logo" ></a>
-  
-   </div>
-        
-        <ul>
-             <li><a href="home.jsp">Home</a></li>
-               <li><a href="signup.jsp">Sign Up</a> </li>
-            
-            
-        </ul>
-      
-    </nav>
+<jsp:include page="header1.jsp" />
 
 
  <div class="main3">
@@ -39,12 +26,29 @@
   <label class="lb ">Password</label>
  <input class="un " type="password" name="pass">
   
-  <input class="submit" type="submit" name="submit" value="Login"><br><br>
+ 
+  <div class="d-flex justify-content-around">
+        <div>
+            <!-- Remember me -->
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+                <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
+            </div>
+        </div>
+        <div>
+            <!-- Forgot password -->
+            <a href="" class="password">Forgot password?</a>
+        </div>
+    </div>
+     <input class="submit" type="submit" name="submit" value="Login"><br><br>
  <div style="text-align: center;">
- <a href="">Forgot Password</a><br><br>
+ 
 <span > Don't have an account?</span>
-<a href="signup.jsp">Sign Up</a></div>
+<a href="signup.jsp" class="password">Sign Up</a></div>
   </form>
 </div>
+
+
+
 </body>
 </html>

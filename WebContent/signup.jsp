@@ -14,21 +14,7 @@
 </head>
 <body  onload="document.registration.reset();"">
 
-   <nav>
-        <div class="leftmenu">
-   <a href="#" class="logo"><img src="img/logo.jpg" height="70" width="100" alt="logo" ></a>
-   
-  
-   </div>
-        
-        <ul>
-             <li><a href="home.jsp">Home</a></li>
-               <li><a href="signin.jsp">Sign In</a> </li>
-            
-            
-        </ul>
-      
-    </nav>
+   <jsp:include page="header1.jsp" />
 
 <div class="main2">
 <p class="sign" align="center">Register</p>
@@ -67,7 +53,7 @@
  
  <div style="text-align: center;">
 <span > Already have an account?</span>
-<a href="signin.jsp">Login</a></div>
+<a href="signin.jsp" class="password">Login</a></div>
  </form>
 </div>
 

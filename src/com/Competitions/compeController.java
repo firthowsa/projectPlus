@@ -1,7 +1,8 @@
 package com.Competitions;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+
+//import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -27,7 +28,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		
 		Project p = new Project();
 		int id = p.getPid();
-		PrintWriter out = response.getWriter();
+		//PrintWriter out = response.getWriter();
 		//out.print(id);
 		
 		String title=request.getParameter("title");

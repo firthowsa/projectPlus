@@ -20,6 +20,7 @@ import javax.servlet.http.HttpSession;
 
 
 
+
 import com.Competitions.Competition;
 import com.Competitions.competitionDaoImp;
 
@@ -45,8 +46,8 @@ public class updateCompetition extends HttpServlet {
         Competition c = new Competition();
         c.setCid(cid);
         competitionDaoImp cDao = new competitionDaoImp();
-        ArrayList<TeamModel> teams = cDao.getParticipatingTeamsFromDB(c);
-        ArrayList<TeamModel> teamsWithVacancy = new ArrayList<TeamModel>();
+        ArrayList<TeamModel> teams = cDao.getParticipatingTeamsFromDB(c);//gets teams participating in this competition
+        ArrayList<TeamModel> teamsWithVacancy = new ArrayList<TeamModel>();//gets teams with less than 5 people
         for(TeamModel t: teams) {
         	pd.getParticipantsFromDatabase(t);
         	if(t.getMembers().size() < 5){
@@ -71,7 +72,7 @@ public class updateCompetition extends HttpServlet {
         int userid=(Integer)session.getAttribute("id");
         //int cid=(Integer)session.getAttribute("cid");
 		// String title= (String)session.getAttribute("title");
-		  
+        String url="joinCompetition.jsp";
         for(int i=0;i<p.size();i++){ 
  		   TeamModel b = p.get(i);
  		   //String team=b.getTeam_Name();
@@ -85,7 +86,8 @@ public class updateCompetition extends HttpServlet {
  		 
  		  if(l.equals(userid)){
  			 pd.update(cid, teamid);
- 			 request.getRequestDispatcher("competitors.jsp").forward(request, response);
+ 			 url="competitors.jsp";
+ 			 //request.getRequestDispatcher("competitors.jsp").forward(request, response);
 		 
  	 		  break;
  	 		  
@@ -104,7 +106,7 @@ public class updateCompetition extends HttpServlet {
   		   out.println("</script>");
          } else {
         	 request.setAttribute("teamsWithVacancy", teamsWithVacancy);
-        	 request.getRequestDispatcher("joinCompetition.jsp").forward(request, response);
+        	 request.getRequestDispatcher(url).forward(request, response);
          }
 
 	}
