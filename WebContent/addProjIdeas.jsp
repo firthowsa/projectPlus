@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css"href="css/header.css">
 <title>project ideas</title>
 
 
@@ -14,60 +15,62 @@
 <body onload="document.registration.reset();">
 
 <%
+response.setHeader("Cache-control", "no-cache,no-store,must-revalidate");
+if(session.getAttribute("firstname") == null){
+response.sendRedirect("signin.jsp");
+}
 	Student user = (Student)session.getAttribute("user");
 	if(!user.getType().equals("admin")){
-		response.sendRedirect("index.jsp");
+		response.sendRedirect("projectCards.jsp");
 	}
 %>
 
 <jsp:include page="header.jsp" />
- <dx:BootstrapFloatingActionButton runat="server" ContainerCssSelector="#hidden-mode" InitialActionContext="c1" TextVisibilityMode="Hidden">
-    <Items>
-        <dx:BootstrapFABAction ActionName="a1" ContextName="c1" Text="Create Item"></dx:BootstrapFABAction>
-    </Items>
-</dx:BootstrapFloatingActionButton>
-
+ <div class="container">
 
 <div class="main4">
-<p class="sign" align="right">Add Project Ideas</p>
+<p class="h1"><u>ADD PROJECT IDEAS</u></p>
 
- <form name="projectideas"  class="form2" action="ProjectIdeas" method="post">
+ <form   name="projectideas"  class="form2" action="ProjectIdeas" method="post">
 
-                
-  <label class="lbb ">Select level</label><br><br>
-  <select class="unn " name="level">
-  <option  >beginner</option>
-  <option >intermediate</option>
-  <option >advanced</option>
-  
-
-  </select><br><br>
-  
-  <label class="lbb ">Select Category</label><br><br>
-  <select class="unn " name="cat">
-  <option  >AI and Data Science</option>
-   <option >Android</option>
-  <option >Web Development</option>
-  
-
-  </select>
-  
-  <br><br> <label class="lbb ">Write Title</label><br><br>
-  <textarea placeholder="write the project title" id="text" name="title" rows="4" style="overflow: hidden; word-wrap: break-word; resize: none; height: 160px; " required></textarea>  
-		<br>
-  
-  <br><br> <label class="lbb ">Write Your Project idea</label><br><br>
-  <textarea placeholder="Write your project idea" id="text" name="desc" rows="4" style="overflow: hidden; word-wrap: break-word; resize: none; height: 160px; "  required></textarea>  
-		<br>
+  <div class="form-group">
+    <label  class="font-weight-bold" for="exampleFormControlInput1">Select level</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="level">
+      <option  >beginner</option>
+      <option >intermediate</option>
+      <option >advanced</option>
+    </select>
+  </div>              
  
+ <div class="form-group">
+    <label  class="font-weight-bold" for="exampleFormControlInput1">Select Category</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="cat">
+      <option  >AI and Data Science</option>
+      <option >Android</option>
+      <option >Web Development</option>
+    </select>
+  </div>  
   
- 
- <input class="submit" type="submit" name="add" onClick="return function();"value="Add"><br><br>
+  
+  <div class="form-group">
+    <label class="font-weight-bold" for="exampleFormControlTextarea1">Write project Title</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="title"  required></textarea>
+  </div>
+  
+  <div class="form-group">
+    <label  class="font-weight-bold" for="exampleFormControlTextarea1">Write Project Description</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="desc"  required></textarea>
+  </div>
+  
+ <input  class="btn btn-success btn-lg" type="submit" name="add" onClick="return function();"value="Add"><br><br>
  
  
  </form>
 </div>
-
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 </body>
    

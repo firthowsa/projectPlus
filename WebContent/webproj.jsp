@@ -26,23 +26,24 @@ response.setHeader("Cache-control", "no-cache,no-store,must-revalidate");
 if(session.getAttribute("firstname") == null){
 response.sendRedirect("signin.jsp");
 }
-Student user = (Student)session.getAttribute("user");
-if(!user.getType().equals("student")){
-	response.sendRedirect("index.jsp");
-}
-
 %>
 
 <jsp:include page="header.jsp" />
-
-
-   <%
-  
-   ProjectDao pd = new ProjectDaoImp();
-   ArrayList<Project> d = pd.getAll();
-   // ArrayList<Project> d = (ArrayList)session.getAttribute("projects");
-   %>
   <div class="container">
+  <%
+  ProjectDao pd = new ProjectDaoImp();
+  ArrayList<Project> d = pd.getAll();
+  // ArrayList<Project> d = (ArrayList)session.getAttribute("projects");
+  Student user = (Student)session.getAttribute("user");
+  if(!user.getType().equals("student")){
+	//response.sendRedirect("index.jsp");
+	%>
+	<div class="text-right">
+     <ul style="list-style-type:none">
+      <li><a href="addProjIdeas.jsp" class="btn btn-success btn-rounded text-right " role="button">Add project</a></li>
+     </ul>
+    </div>
+    <%} %>
    <div class="row">
    <%for(int i=0;i<d.size();i++){ %>
   <%Project b = d.get(i);
@@ -62,6 +63,7 @@ if(!user.getType().equals("student")){
   <input type="hidden" value="<%= b.getCategory() %>" name="category">
   <input type="hidden" value="<%= b.getLevel() %>" name="level">
   <input type="hidden" value="<%= b.getTitle() %>" name="title">
+  <input type="hidden" value="<%= b.getPid() %>" name="pid">
 <div class="card" >
   <img class="card-img-top" src="img/web.jpg" alt="Card image">
   <div class="card-body">
@@ -78,6 +80,7 @@ if(!user.getType().equals("student")){
   <input type="hidden" value="<%= b.getCategory() %>" name="category">
   <input type="hidden" value="<%= b.getLevel() %>" name="level">
   <input type="hidden" value="<%= b.getTitle() %>" name="title">
+   <input type="hidden" value="<%= b.getPid() %>" name="pid">
 <div class="card">
   <img class="card-img-top" src="img/web3.jpg" alt="Card image">
   <div class="card-body">
@@ -94,6 +97,7 @@ if(!user.getType().equals("student")){
   <input type="hidden" value="<%= b.getCategory() %>" name="category">
   <input type="hidden" value="<%= b.getLevel() %>" name="level">
   <input type="hidden" value="<%= b.getTitle() %>" name="title">
+   <input type="hidden" value="<%= b.getPid() %>" name="pid">
 <div class="card" >
   <img class="card-img-top" src="img/web4.jpg" alt="Card image">
   <div class="card-body">

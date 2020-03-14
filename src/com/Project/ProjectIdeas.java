@@ -62,7 +62,7 @@ HttpSession session = request.getSession();
 			System.out.println(status);
 			
 			
-			response.sendRedirect("ViewProjects");
+			response.sendRedirect("projectCards.jsp");
 		     
 				}else {
 					session.setAttribute("message6", "Data not found signup if you dont have an account");

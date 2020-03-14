@@ -7,8 +7,16 @@ public class Project {
 	private String category;
 	private String description;
 	private String title;
-	
-
+	public Project(){
+		
+	}
+  public Project(int pid,String level,String category,String description,String title){
+	  this.level=level;
+	  this.category=category;
+	  this.description=description;
+	  this.title=title;
+	  this.pid=pid;
+  }
 	public int getPid() {
 		return pid;
 	}

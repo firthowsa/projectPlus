@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+     <%@ page import= "com.Student.Student" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,12 +21,14 @@ String desc=request.getParameter("desc");
 String category=request.getParameter("category");
 String title=request.getParameter("title");
 String level=request.getParameter("level");
+int pid=Integer.parseInt(request.getParameter("pid"));
 
 //out.println(desc);
 session.setAttribute("desc", desc);
 session.setAttribute("title", title);
 session.setAttribute("category", category);
 session.setAttribute("level", level);
+session.setAttribute("pid", pid);
 
 
 %>
@@ -34,13 +37,19 @@ session.setAttribute("level", level);
 
 <div class="container">
 
- 
+ <%
+Student user = (Student)session.getAttribute("user");
+if(!user.getType().equals("student")){
+	//response.sendRedirect("index.jsp");
+
+	%>
  <div class="text-right">
  
  <ul  style="list-style-type:none"> 
    <li><a href="updateproj.jsp" class="btn btn-success btn-rounded pull-left " role="button">Update</a></li>
  </ul>
    </div>
+<%} %>
 
 <h1><%=title %></h1>
 <p><%=desc %></p>

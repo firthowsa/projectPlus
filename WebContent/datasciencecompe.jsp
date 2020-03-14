@@ -26,23 +26,28 @@ response.setHeader("Cache-control", "no-cache,no-store,must-revalidate");
 if(session.getAttribute("firstname") == null){
 response.sendRedirect("signin.jsp");
 }
-Student user = (Student)session.getAttribute("user");
-if(!user.getType().equals("student")){
-	response.sendRedirect("index.jsp");
-}
 
 %>
 
 <jsp:include page="header.jsp" />
 
-
+ <div class="container">
    <%
   
    competitionDao pd = new competitionDaoImp();
    ArrayList<Competition> d = pd.getCompetition();
-   // ArrayList<Project> d = (ArrayList)session.getAttribute("projects");
-   %>
-  <div class="container">
+   Student user = (Student)session.getAttribute("user");
+   if(!user.getType().equals("student")){
+ 	//response.sendRedirect("index.jsp");
+ 	%>
+ 	<div class="text-right">
+      <ul style="list-style-type:none">
+       <li><a href="addCompe.jsp" class="btn btn-success btn-rounded text-right " role="button">Add Competition</a></li>
+      </ul>
+     </div>
+     <%} %>
+   
+ 
   <div class="row">
    <%for(int i=0;i<d.size();i++){ %>
   <%Competition b = d.get(i);
